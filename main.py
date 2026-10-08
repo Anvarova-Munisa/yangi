@@ -6,6 +6,7 @@ import asyncio
 
 from handlers.users.start import router as start_router
 from handlers.users.help import router as help_router
+from handlers.users.tolov import router as tolov
 from handlers.users.tugma import router as tugma
 from handlers.inline.photo import router as photo
 from handlers.inline.audio import router as audio
@@ -25,6 +26,7 @@ async def main():
 
     dp.include_router(start_router)
     dp.include_router(help_router)
+    dp.include_router(tolov)
     dp.include_router(car_router)
     dp.include_router(tugma)
     dp.include_router(photo)

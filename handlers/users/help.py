@@ -10,5 +10,6 @@ async def help_command(message: Message):
         text="Yordam bo'limi:\n\n"
              "Agarda bot ishlamay qolsa qaytadan /start buyrug'ini bosing.\n"
              "Avtosalondan mashina tanlash uchun /car buyrug'idan foydalaning.\n"
+             "Botdan kengroq foydalanish uchun /buy buyrug'ni bering\n\n"
              "Muammo yuzaga kelsa admin bilan bog'laning."
     )
