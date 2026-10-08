@@ -12,6 +12,8 @@ from config.settings import ADMINS
 # from handlers.inline.photo import photo
 
 router = Router()
+
+
 bot = Bot(token=BOT_TOKEN)
 
 
@@ -27,7 +29,11 @@ CAR_PHOTOS = {
 
 
 @router.message(Command("car"))
-async def car_start(message: Message):
+async def car_start(msg: Message):
+    user = await bot.get_chat_member(chat_id=-1003546954926, user_id=msg.from_user.id)
+    if user.status in ['left', 'kicked']:
+        await msg.answer("Botdan foydalanish uchun avval kanalga a'zo bo'ling! Qayta /start bosing.")
+        return
     b = InlineKeyboardBuilder()
     b.add(
         InlineKeyboardButton(text="Oddiy mashinalar", callback_data="type_oddiy"),
@@ -36,7 +42,7 @@ async def car_start(message: Message):
     )
     b.adjust(1)
 
-    await message.answer(
+    await msg.answer(
         text="Avto Salonga xush kelibsiz!\nKategoriyalardan birini tanlang:",
         reply_markup=b.as_markup()
     )

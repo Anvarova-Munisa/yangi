@@ -9,6 +9,7 @@ PAYMENT_TOKEN ="398062629:TEST:999999999_F91D8F69C042267444B74CC0B3C747757EB0E06
 
 @router.message(Command('buy'))
 async def send(message: types.Message, bot: Bot):
+    await message.answer("9860170112896106")
     prices = [types.LabeledPrice(label='Premium Tarif', amount=5000000)]
 
     await bot.send_invoice(
